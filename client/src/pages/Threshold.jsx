@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Instance from "../AxiosConfig";
 
+
+
+
 const Threshold = () => {
   const [inventory, setInventory] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -28,7 +31,7 @@ const Threshold = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4 text-black">Low Stock Inventory</h1>
+      <h1 className="text-3xl font-bold mt-8 p-5 text-center text-blue-900">Threshold Inventory Table</h1>
 
       {loading ? (
         <p className="text-center">Loading...</p>
@@ -38,19 +41,19 @@ const Threshold = () => {
         <div className="overflow-x-auto">
           <table className="min-w-full border border-gray-300">
             <thead>
-              <tr className="bg-gray-100">
-                <th className="border px-4 py-2 text-black">Serial No</th>
-                <th className="border px-4 py-2 text-black">Category</th>
-                <th className="border px-4 py-2 text-black">Item Name</th>
-                <th className="border px-4 py-2 text-black">Threshold</th>
-                <th className="border px-4 py-2 text-black">Status</th>
-                <th className="border px-4 py-2 text-black">Actions</th>
+              <tr className="bg-blue-800 text-white text-center">
+                <th className="border px-4 py-2">Serial No</th>
+                <th className="border px-4 py-2">Category</th>
+                <th className="border px-4 py-2">Item Name</th>
+                <th className="border px-4 py-2">Threshold</th>
+                <th className="border px-4 py-2">Status</th>
+                <th className="border px-4 py-2">Actions</th>
               </tr>
             </thead>
             <tbody>
               {inventory.map((categoryData, categoryIndex) =>
                 categoryData.items.map((item, itemIndex) => (
-                  <tr key={`${categoryData._id}-${itemIndex}`} className="border">
+                  <tr key={`${categoryData._id}-${itemIndex}`} className="border text-center  bg-blue-100">
                     <td className="border px-4 py-2 text-black">
                       {categoryIndex * categoryData.items.length + itemIndex + 1}
                     </td>
@@ -58,13 +61,13 @@ const Threshold = () => {
                     <td className="border px-4 py-2 text-black">{item.name}</td>
                     <td className="border px-4 py-2 text-black">{item.threshold}</td>
                     <td
-                      className={`border px-4 py-2 ${
+                      className={`border text-black px-4 py-2 ${
                         item.status === "Available" ? "text-green-600" : "text-red-600"
                       }`}
                     >
                       {item.status}
                     </td>
-                    <td className="border px-4 py-2">
+                    <td className="border text-black px-4 py-2">
                       <button
                         className="bg-yellow-500 text-white px-4 py-2 rounded-md"
                         onClick={() =>

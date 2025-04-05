@@ -4,7 +4,7 @@ function ReturnInventory() {
   return (
     <div>
       
-
+Return Inventory Table
 
 
       

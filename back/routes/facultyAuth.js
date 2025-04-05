@@ -4,7 +4,7 @@ import { registerFaculty, loginFaculty, checkAuth ,facultyLogOut} from "../contr
 
 const router = express.Router();
 
-router.post("/faculty-register", registerFaculty);
+router.post("/facultysignUp", registerFaculty);
 router.post("/facultylogin", loginFaculty);
 router.get("/checkToken", checkAuth);
 router.post("/faculty-logout",facultyLogOut);

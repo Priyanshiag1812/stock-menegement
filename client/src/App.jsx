@@ -6,18 +6,18 @@ import ChangeInventory from "./pages/ChangeInventory";
 import IssueInventory from "./pages/IssueInventory";
 import IssueInventoryTable from "./pages/IssueInventoryTable.jsx";
 import ReturnInventory from "./pages/ReturnInventory";
-import RequestInventory from "./pages/RequestInventory.jsx";
+// import RequestInventory from "./pages/RequestInventory.jsx";
 import RequestInventoryTable from "./pages/RequestInventoryTable.jsx";
 import Report from "./pages/Report";
 import Summary from "./pages/Summary";
 import ThreShold from "./pages/Threshold";
-import UserProfile from "./pages/UserProfile";
 import Login from "./pages/Login";
 import First from "./pages/First";
 import FacultyLogin from "./pages/FacultyLogin.jsx";
 import FacultySignUp from "./pages/FacultySignUp.jsx";
 import ProtectedRoute from "./components/ProtectedRouter";
 import SignUp from "./pages/SignUp.jsx";
+import Notify from "./pages/Notify.jsx";
 
 const router = createBrowserRouter([
   {
@@ -102,14 +102,25 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
+      // {
+      //   path: "/request-inventory",
+      //   element: (
+      //     <ProtectedRoute>
+      //       <RequestInventory />
+      //     </ProtectedRoute>
+      //   ),
+      // },
+
       {
-        path: "/request-inventory",
-        element: (
-          <ProtectedRoute>
-            <RequestInventory />
-          </ProtectedRoute>
-        ),
-      },
+          path: "/notify",
+          element: (
+            <ProtectedRoute>
+              <Notify />
+            </ProtectedRoute>
+          ),
+         },
+
+
       {
         path: "/report",
         element: (
@@ -134,14 +145,7 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: "/user_profile",
-        element: (
-          <ProtectedRoute>
-            <UserProfile />
-          </ProtectedRoute>
-        ),
-      },
+    
     ],
   },
 ]);

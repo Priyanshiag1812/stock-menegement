@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import Instance from "../AxiosConfig";
+
 
 const RequestInventoryTable = () => {
   const [inventory, setInventory] = useState([]);
@@ -8,7 +9,9 @@ const RequestInventoryTable = () => {
   const [selectedCategory, setSelectedCategory] = useState(""); 
   const [selectedStatus, setSelectedStatus] = useState(""); // New state for status filter
   const [loading, setLoading] = useState(true);
+  const srNoRef = useRef(1);  
   const navigate = useNavigate();
+  
 
   useEffect(() => {
     fetchData();
@@ -119,7 +122,7 @@ const RequestInventoryTable = () => {
                     className="border"
                   >
                     <td className="border px-4 py-2 text-black">
-                      {categoryIndex * categoryData.items.length + itemIndex + 1}
+                      {srNoRef.current++}
                     </td>
                     <td className="border px-4 py-2 text-black">
                       {categoryData.category}

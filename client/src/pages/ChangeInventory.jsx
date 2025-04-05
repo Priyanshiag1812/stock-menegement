@@ -46,30 +46,30 @@ const ChangeInventory = () => {
           </h1>
           <form onSubmit={handleUpdate}>
             <div className="grid grid-cols-2 gap-6 px-6 py-10">
-              <div className="font-bold">
+              <div className="font-bold text-blue-900">
                 <label>Category</label>
                 <input
-                  className="border-2 my-2 px-5 py-2 w-full bg-gray-200"
+                  className="border-2 my-2 px-5 py-2 w-full text-gray-500 "
                   type="text"
                   value={category}
                   disabled
                 />
               </div>
 
-              <div className="font-bold">
+              <div className="font-bold text-blue-900">
                 <label>Item Name</label>
                 <input
-                  className="border-2 my-2 px-5 py-2 w-full bg-gray-200"
+                  className="border-2 my-2 px-5 py-2 w-full text-gray-500 "
                   type="text"
                   value={name}
                   disabled
                 />
               </div>
 
-              <div className="font-bold">
+              <div className="font-bold text-blue-900">
                 <label>Quantity</label>
                 <input
-                  className="border-2 my-2 px-5 py-2 w-full"
+                  className="border-2 my-2 px-5 py-2 w-full text-gray-500"
                   type="number"
                   value={updatedQty}
                   onChange={(e) => setUpdatedQty(e.target.value)}
@@ -77,10 +77,10 @@ const ChangeInventory = () => {
                 />
               </div>
 
-              <div className="font-bold">
+              <div className="font-bold text-blue-900">
                 <label>Threshold</label>
                 <input
-                  className="border-2 my-2 px-5 py-2 w-full"
+                  className="border-2 my-2 px-5 py-2 w-full text-gray-500"
                   type="number"
                   value={updatedThreshold}
                   onChange={(e) => setUpdatedThreshold(e.target.value)}
@@ -88,10 +88,10 @@ const ChangeInventory = () => {
                 />
               </div>
 
-              <div className="font-bold">
+              <div className="font-bold text-blue-900">
                 <label>Status</label>
                 <select
-                  className="border-2 my-2 px-5 py-2 w-full text-black"
+                  className="border-2 my-2 px-5 py-2 w-full text-gray-500 "
                   value={updatedStatus}
                   onChange={(e) => setUpdatedStatus(e.target.value)}
                   required

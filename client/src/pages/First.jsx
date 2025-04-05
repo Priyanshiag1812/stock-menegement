@@ -12,8 +12,10 @@ function First() {
   }
 
   return (
-    <div className="flex min-h-screen bg-white-100">
+    <div className="flex min-h-screen bg-white-100 relative">
+      <div className="min-h-screen w-1/6">
       <Dashboard />
+        </div>
       <main className="min-h-screen w-full bg-gray-100">
         <Header />
         <Outlet/>

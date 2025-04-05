@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Instance from "../AxiosConfig";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+
+const notify = () => {
+  toast('All fields are required, and quantity must be greater than zero.');
+};
 
 function IssueInventory() {
   const [categories, setCategories] = useState([]);
@@ -68,7 +73,8 @@ function IssueInventory() {
       returnStatus,
     } = formData;
     if (!category || !itemName || !issuedToDept || !issuedToFaculty  || Number(issuedQty) <= 0) {
-      alert("All fields are required, and quantity must be greater than zero.");
+     
+      
       return;
     }
 
@@ -101,17 +107,19 @@ function IssueInventory() {
   return (
     <div className="wrapper">
       <div className="main flex items-start justify-center">
-        <div className="add_inventory rounded-2xl bg-blue-100 w-3/5 m-auto my-8 px-10 py-8 text-black">
-          <h1 className="text-blue-900 text-3xl font-bold text-center px-8 py-2">
+        <div className="add_inventory rounded-2xl bg-blue-100 border-blue-950 w-5/6 m-auto my-8 px-10 py-8 shadow-[10px_10px_30px_rgba(0,0,0,0.3)]">
+          <h1 className="text-blue-950 text-3xl font-bold text-center px-8 py-2">
             Issue Inventory
           </h1>
           <form onSubmit={handleIssueInventory} className="text-black">
-            <div className="grid grid-cols-2 gap-6 px-6 py-10">
+            <div className="grid grid-cols-3 gap-12 px-12 py-10">
+            <div className="font-bold  text-blue-900">
+            <label htmlFor="category text-blue-900">Category</label>
               <select
                 name="category"
                 value={formData.category}
                 onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
+                className="border-2 my-2 px-5 py-2 w-full  text-gray-500 rounded-md"
                 required
               >
                 <option value="">Select Category</option>
@@ -121,23 +129,46 @@ function IssueInventory() {
                   </option>
                 ))}
               </select>
+              </div>
+
+              <div className="font-bold text-blue-900">
+              <label htmlFor="itemName text-blue-900">Inventory Name</label>
               <input
                 type="text"
                 name="itemName"
-                placeholder="Item Name"
+                placeholder=""
                 value={formData.itemName}
                 onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
+                className="border-2 my-2 px-5 py-2 w-full  text-gray-500 rounded-md"
                 required
               />
+</div>
+
+
+<div className="font-bold text-blue-900">
+<label htmlFor="issuedQty text-blue-900">Quantity</label>
+              <input
+                type="number"
+                name="issuedQty"
+                placeholder=""
+                min="1"
+                value={formData.issuedQty}
+                onChange={handleChange}
+                className="border-2 my-2 px-5 py-2 w-full text-gray-500 rounded-md"
+                required
+              />
+
+</div>
+<div className="font-bold text-blue-900">
+<label htmlFor="issuedToDept text-blue-900">Department Name</label>
                 <select placeholder="Department Name"
                 name="issuedToDept"
                 value={formData.issuedToDept}
                 onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
+                className="border-2 my-2 px-5 py-2 w-full text-gray-500 rounded-md"
                 required
               >
-                <option value="Department Name">Department Name</option>
+                <option value="Department Name">Select Department</option>
                 <option value="Fashion & Textiles">Fashion & Textiles</option>
                 <option value="Jewellery Design">Jewellery Design</option>
                  <option value="Fine Arts">Fine Arts</option>
@@ -197,48 +228,53 @@ function IssueInventory() {
                 </option>
               </select>
 
+</div>
 
 
+
+<div className="font-bold text-blue-900">
+<label htmlFor="issuedToFaculty text-blue-900">Faculty Name</label>
               <input
                 type="text"
                 name="issuedToFaculty"
-                placeholder="Faculty Name"
+                placeholder=""
                 value={formData.issuedToFaculty}
                 onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
+                className="border-2 my-2 px-5 py-2 w-full text-gray-500 rounded-md"
                 required
               />
-              <input
-                type="number"
-                name="issuedQty"
-                placeholder="Quantity"
-                min="1"
-                value={formData.issuedQty}
-                onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
-                required
-              />
+
+              </div>
+
+
+
+
+
+<div className="font-bold text-blue-900">
+<label htmlFor="returnStatus text-blue-900">Return Status</label>
               <select
                 name="returnStatus"
                 value={formData.returnStatus}
                 onChange={handleChange}
-                className="border-2 my-2 px-5 py-2 w-full text-black"
+                className="border-2 my-2 px-5 py-2 w-full text-gray-500 rounded-md"
                 required
               >
+                <option value="Select Status">Select Status</option>
                 <option value="Returnable">Returnable</option>
                 <option value="Non Returnable">Non-Returnable</option>
               </select>
+              </div>
             </div>
             <div className="flex justify-center items-center">
-              <button
-                className="px-8 py-3 bg-blue-900 text-white rounded-2xl mx-4"
+              <button onClick={notify}
+                className="px-8 py-3 bg-blue-900 text-white rounded-lg mx-4"
                 type="submit"
                 disabled={loading}
               >
                 {loading ? "Submitting..." : "Submit"}
               </button>
               <button
-                className="px-8 py-3 bg-gray-900 text-white rounded-2xl mx-4"
+                className="px-8 py-3 bg-gray-900 text-white rounded-lg mx-4"
                 type="reset"
                 onClick={() =>
                   setFormData({

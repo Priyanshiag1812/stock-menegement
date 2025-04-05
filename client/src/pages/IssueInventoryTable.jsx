@@ -26,25 +26,26 @@ function IssueInventoryTable() {
        
       </div>
           <div className="mt-10 text-black p-10">
-            <h2 className="text-xl font-bold text-center text-blue-900">
+            <h2 className="text-3xl font-bold text-center text-blue-900">
               Issued Inventory Table
             </h2>
             <table className="w-full border-collapse border border-blue-900 mt-4 text-black">
               <thead>
-                <tr className="bg-blue-300">
-                  <th className="border border-blue-900 px-4 py-2">Category</th>
-                  <th className="border border-blue-900 px-4 py-2">
+                <tr className="bg-blue-800">
+                {/* <th className="border  text-white px-4 py-2"></th> */}
+                  <th className="border  text-white px-4 py-2">Category</th>
+                  <th className="border text-white px-4 py-2">
                     Item Name
                   </th>
-                  <th className="border border-blue-900 px-4 py-2">
+                  <th className="border text-white px-4 py-2">
                     Department Name
                   </th>
 
-                  <th className="border border-blue-900 px-4 py-2">
+                  <th className="border text-white px-4 py-2">
                     Faculty Name
                   </th>
-                  <th className="border border-blue-900 px-4 py-2">Quantity</th>
-                  <th className="border border-blue-900 px-4 py-2">
+                  <th className="border text-white px-4 py-2">Quantity</th>
+                  <th className="border text-white px-4 py-2">
                     Return Status
                   </th>
                 </tr>
